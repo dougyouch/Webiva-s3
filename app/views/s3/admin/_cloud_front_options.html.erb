@@ -1,4 +1,4 @@
-<% cms_subfields_for :options, @options do |f| -%>
+<%= cms_subfields_for :options, @options do |f| -%>
 <%= f.header 'Cloud Front Settings (readonly)' %>
 <%= f.text_field :cloud_front_distribution_id, :readonly => true, :label => 'Id' %>
 <%= f.text_field :cloud_front_origin, :readonly => true, :label => 'Origin' %>

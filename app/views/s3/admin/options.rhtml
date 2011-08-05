@@ -1,5 +1,5 @@
 <% if @options.enable_cloud_front && @options.cloud_front_distribution_info -%>
-  <% action_panel do |p| -%>
+  <%= action_panel do |p| -%>
     <%= p.link "AWS Cloud Front Settings", :action => 'cloud_front_setup', :icon => 'edit.gif' %>
   <% end -%>
   <hr/>
@@ -7,7 +7,7 @@
 
 <div class='admin_content'>
 
-<% cms_form_for :options, @options, :html => {:class =>'admin_form' } do |f| -%>
+<%= cms_form_for :options, @options, :html => {:class =>'admin_form' } do |f| -%>
 
 <% unless @options.system_options -%>
   <%= f.text_field :access_key_id %>
