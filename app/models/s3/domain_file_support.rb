@@ -28,7 +28,7 @@ class S3::DomainFileSupport
     begin
       (size ? [ size ] : file_sizes).each do |size|
         @connection.store(self.prefixed_filename(size),
-                                File.open(@df.local_filename(size)),
+                                File.open(@df.local_filename(size), 'rb'),
                                 @df.private? ? 'private' : 'public-read') if File.exists?(@df.local_filename(size))
       end
       return true
@@ -52,7 +52,7 @@ class S3::DomainFileSupport
   def revision_support; true; end
 
   def create_remote_version!(version)
-    File.open(version.abs_filename) do |f|
+    File.open(version.abs_filename, 'rb') do |f|
       @connection.store(version.prefixed_filename,f,'private')
     end
     return true

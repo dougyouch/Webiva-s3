@@ -46,7 +46,7 @@ class S3::Bucket
   end
 
   def copy_local!(key, filename)
-    File.open(filename, 'w') do |file|
+    File.open(filename, 'wb') do |file|
       file.write self.bucket.get(key)
     end
   end
