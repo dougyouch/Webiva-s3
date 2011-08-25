@@ -1,6 +1,8 @@
-require  File.expand_path(File.dirname(__FILE__) + '/../../s3_spec_helper')
+require 'spec_helper'
+require 's3_spec_helper'
 
 describe S3::AdminController do
+  include ActionDispatch::TestProcess
 
   reset_domain_tables :configurations
 

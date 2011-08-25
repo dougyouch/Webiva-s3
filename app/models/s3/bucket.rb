@@ -1,4 +1,3 @@
-require 'right_aws'
 
 class S3::Bucket
   attr_accessor :access_key_id, :secret_access_key, :name

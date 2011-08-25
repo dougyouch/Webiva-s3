@@ -1,6 +1,8 @@
-require  File.expand_path(File.dirname(__FILE__) + '/../../s3_spec_helper')
+require 'spec_helper'
+require 's3_spec_helper'
 
 describe DomainFile do
+  include ActionDispatch::TestProcess
 
   reset_domain_tables :domain_file, :domain_file_version, :configuration
   reset_system_tables :server
