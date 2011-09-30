@@ -13,6 +13,7 @@
   <%= f.text_field :access_key_id %>
   <%= f.text_field :secret_access_key %>
   <%= f.text_field :bucket %>
+  <%= f.text_field :cname %>
 <% end -%>
 
 <%= f.check_boxes :enable_cloud_front, [['Use AWS Cloud Front', true]], :label => 'Cloud Front Support', :single => true %>

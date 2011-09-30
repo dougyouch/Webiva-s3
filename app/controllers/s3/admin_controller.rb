@@ -183,7 +183,6 @@ class S3::AdminController < ModuleController
 
     def clear_cloud_front_settings
       self.cloud_front_distribution_info = nil
-      self.cname = nil
     end
 
     def valid_cloud_front_settings?
@@ -211,7 +210,10 @@ class S3::AdminController < ModuleController
     end
 
     def secure_host
-      @secure_host ||= self.connection.host
+      @secure_host ||=
+        begin
+          self.cname.blank? ? self.connection.host : self.cname
+        end
     end
 
     def url_for(key, options={})
